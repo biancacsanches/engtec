@@ -1,0 +1,65 @@
+<html>
+    <head>
+        {% include "model-header.html" %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #1e3d58;">
+            <a class="navbar-brand text-white" >
+                <!--{% load static %}
+                <img src="{% static "engtec.png" %}" width="30" height="30" class="d-inline-block align-top rounded-lg" alt="" -->
+                Eng Tec
+              </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="#sobrenos">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#galeria">Galeria</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#contato">Contato</a>
+                  </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Faça Parte
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Cliente</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Equipe</a>
+                  </div>
+                </li>
+                {% if user.is_authenticated %}
+                </ul>
+                <span style="margin-right: 8%;">
+                    <a class="navbar-text disabled text-white " href="#" aria-disabled="true" >{{user.username}}</a>
+                <a href="/logout"><button class="btn btn-outline-primary my-2 my-sm-0 text-white" >Logout</button></a>
+                </span>
+          
+              {% else %}
+            </ul>   
+              <form class="form-inline my-2 my-lg-0" action="/login/submit" method="POST" > {% csrf_token %}
+                <input class="form-control mr-sm-2" type="text" placeholder="Usuário" aria-label="Usuário" name="username">
+                <input class="form-control mr-sm-2" placeholder="Senha" aria-label="Senha" type="password" name="password">
+                <button class="btn btn-outline-primary my-2 my-sm-0 " type="submit" >Sign in</button>
+              </form>
+              {% endif %}
+            </div>
+          </nav>
+          {% for message in messages %}
+          <div align="center">
+            <strong>Erro: </strong>{{ message}}
+          </div>
+          {% endfor %}
+        {% block content %}
+        {% endblock %}
+        {% include "model-footer.html" %}
+    </body>
+</html>
