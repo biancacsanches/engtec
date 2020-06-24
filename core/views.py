@@ -76,9 +76,6 @@ def submit_cliente(request):
             status = 3      
     return render(request, 'projeto.html', status)
 
-def cadastrar_cliente(request):
-    return render(request, 'cadastro.html')
-
 def lista_clientes(request):
     # pylint: disable=no-member
     cliente = Cliente.objects.all()

@@ -27,5 +27,4 @@ urlpatterns = [
     path('projeto/submit', views.submit_projeto),
     path('cadastro/cliente/submit', views.submit_cliente),
     path('projetos/', views.lista_clientes),
-    path('cadastro/', views.cadastrar_cliente)
 ]
