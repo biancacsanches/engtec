@@ -10,10 +10,16 @@ from django.http.response import Http404, JsonResponse
 
 
 # Create your views here.
+@login_required(login_url='/')
 def dashboard(request):
     return  render(request, 'dashboard.html')
+
 def index(request):
     return render(request, 'index.html')
+
+@login_required(login_url='/')
+def cadastro_cliente(request):
+    return render(request, 'cliente-cadastro.html')
 
 def login_submit(request):
     if request.POST:
@@ -42,7 +48,8 @@ def submit_projeto(request):
         status_andamento = request.POST.get('status_andamento')
         orcamento = request.POST.get('orcamento')
         data_inicio = request.POST.get('data_inicio')
-        cliente = request.POST.get('cliente')
+        cliente = Cliente.objects.get(id=request.POST.get('cliente'))
+
         id_projeto = request.POST.get('id_projeto')
         if (nome is not None and descricao is not None and status_andamento is not None and orcamento is not None and data_inicio is not None and cliente is not None):
             if id_projeto:
@@ -54,9 +61,9 @@ def submit_projeto(request):
                 status = {'success':2}
 
         else :
-            messages.error(request, "Usuário ou senha inválido")
+                status = {'success':3}
      
-    return render(request, 'projeto-cadastro.html', status)
+    return redirect('dashboard/projeto/cadastro')
 
 @login_required(login_url='/')
 def submit_cliente(request):
@@ -68,16 +75,18 @@ def submit_cliente(request):
         email = request.POST.get('email')
         perfil = request.POST.get('perfil')
         id_cliente = request.POST.get('id_cliente')
+
         if (nome is not None and  telefone is not None and email is not None and perfil is not None):
             if id_cliente:
                 Cliente.objects.filter(id=id_cliente).update(nome=nome, telefone=telefone, email=email, perfil=perfil)
-                status = 1
+                status = {'success':1}
             else:
                 Cliente.objects.create(nome=nome, telefone=telefone, email=email, perfil=perfil)
-                status = 2
+                
+                status = {'success':2}
         else :
-            status = 3      
-    return render(request, 'projeto.html', status)
+           status = {'success':3}      
+    return render(request, 'cliente-cadastro.html', status)
 
 def lista_clientes(request):
     # pylint: disable=no-member

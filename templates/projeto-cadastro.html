@@ -7,7 +7,7 @@
     {% endif %}
         <div class="row">
             <div class="col-md-12">
-                <h2>Novo Cliente</h2>
+                <h2>Novo Projeto</h2>
             </div>
             <div class="col-md-12">
 
@@ -27,12 +27,22 @@
                     <br>
                     <label>Orçamento</label>
                     <br>
-                    <input type="number" step="0.01" min="0" name="orcamento" size="23" value="{{ projeto.orcamento }}">
+                    <input type="number"  min="0" name="orcamento" size="23" value="{{ projeto.orcamento }}">
                     <br>
                     <label>Data de ínicio</label>
                     <br>
                     <input type="datetime-local" name="data_inicio" value="{{ projeto.get_data_input_inicio }}">
-                    <br><br>
+                    <br>
+                    
+                    <br>
+                    <label>Cliente</label>
+                    <br>
+                    <select name="cliente">
+                        {% for cliente in clientes %}
+                        <option value="{{cliente.id}}" > {{cliente.nome}}</option>
+                    {% endfor %}
+                        </select> 
+                    <br>
                     <button type="submit">Salvar</button>
                     <a href="/dashboard">
                         <button type="button">Cancelar</button>

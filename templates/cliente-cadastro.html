@@ -1,0 +1,39 @@
+{% block content %}
+
+<section id="about">
+    <div style="padding: 8%;">
+        {% if evento.get_evento_atrasado %}
+        
+    {% endif %}
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Novo Cliente</h2>
+            </div>
+            <div class="col-md-12">
+
+                <form action="submit" method="POST">{% csrf_token %}
+                    <input type="number" name="id_cliente" value="{{ cliente.id }}" hidden>
+                    <label>Nome</label>
+                    <br>
+                    <input type="text" name="nome" size="23" value="{{ cliente.nome }}">
+                    <br>
+                    <label>Telefone</label>
+                    <br>
+                    <input name="telefone" type="tel" rows="5" cols="23"value="{{ cliente.telefone }}"></textarea>
+                    <br>
+                    <label>E-mail</label>
+                    <br>
+                    <input type="email" name="email" size="23" value="{{ cliente.email }}">
+                    <br>
+                    <label>Perfil</label>
+                    <br>
+                    <input type="text"  name="perfil" size="23" value="{{ cliente.perfil }}">
+                    <br>
+                    <button type="submit">Salvar</button>
+                    <a href="/dashboard">
+                        <button type="button">Cancelar</button>
+                    </a>
+                </form>
+            </div>
+        </div>
+        {% endblock %}
