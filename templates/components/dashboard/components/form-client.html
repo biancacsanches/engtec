@@ -1,0 +1,35 @@
+ <form action="submit" method="POST">{% csrf_token %}
+    <div class="form-row text-center">
+    <div class="col-2"></div>
+
+    <div class="col-8">
+        <input type="number" name="id_cliente" value="{{ cliente.id }}" hidden>
+
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" name="nome"  placeholder="Nome Completo" value="{{ cliente.nome }}">
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword4">Telefone</label>
+            <input type="tel" class="form-control" name="telefone"  placeholder="Telefone" {{ cliente.telefone }}>
+        </div>
+
+    
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" name="email" placeholder="email@email.com" {{ cliente.email }}>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEstado">Perfil</label>
+            <select name="perfil" class="form-control">
+            <option value="pessoa fisica">Pessoa Física</option>
+            <option value="pessoa juridica">Pessoa Jurídica</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-2"></div>
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+</form>

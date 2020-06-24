@@ -1,0 +1,34 @@
+{% load static %}
+  <head>
+    {% include "components/dashboard/base/head.html" %}
+  </head>
+
+  {% include "components/dashboard/style/style.html" %}
+
+  <body class="">
+    <div class="wrapper">
+
+      {% include "components/dashboard/components/sideBarMenu.html" %}
+
+      <div class="main-panel" id="main-panel">
+
+        {% include "components/dashboard/components/menu.html" %}
+        {% include "components/dashboard/components/header.html" %}
+
+        <div class="content">
+          <div class="row">
+            <div class="col-md-12">
+                <h2>Novo Projeto</h2>
+            </div>
+            <div class="col-md-12">
+              {% include "components/dashboard/components/form-project.html" %}
+            </div>
+        </div>
+        </div>
+        {% include "base/model-footer.html" %}
+      
+      </div>
+    </div>
+    
+    {% include "components/dashboard/scripts/scripts.html" %}
+    

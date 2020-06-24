@@ -6,20 +6,26 @@
         <div class="card-body">
         <div class="table-responsive">
             <table class="table">
-            <thead class=" text-primary">
-                <th>
-                Name
-                </th>
-                <th>
-                Telefone
-                </th>
-                <th>
-                E-mail
-                </th>
-            </thead>
-            <tbody>
-        
-            </tbody>
+                <thead class=" text-primary">
+                    <th>
+                    Name
+                    </th>
+                    <th>
+                    Telefone
+                    </th>
+                    <th>
+                    E-mail
+                    </th>
+                </thead>
+                <tbody>
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{cliente.nome}}</td>
+                    <td>{{cliente.telefone}}</td>
+                    <td>{{cliente.email}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
             </table>
         </div>
         </div>

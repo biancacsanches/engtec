@@ -1,0 +1,57 @@
+{% load static %}
+  <head>
+    {% include "components/dashboard/base/head.html" %}
+  </head>
+
+  {% include "components/dashboard/style/style.html" %}
+
+  <body class="">
+    <div class="wrapper">
+
+      {% include "components/dashboard/components/sideBarMenu.html" %}
+
+      <div class="main-panel" id="main-panel">
+
+        {% include "components/dashboard/components/menu.html" %}
+        {% include "components/dashboard/components/header.html" %}
+
+        <div class="content">
+          <div class="row">
+            <div class="col-md-12">
+                <h2>Novo Cliente</h2>
+            </div>
+            <div class="col-md-12">
+                {% include "components/dashboard/components/form-client.html" %}
+                <form action="submit" method="POST">{% csrf_token %}
+                    <input type="number" name="id_cliente" value="{{ cliente.id }}" hidden>
+                    <label>Nome</label>
+                    <br>
+                    <input type="text" name="nome" size="23" value="{{ cliente.nome }}">
+                    <br>
+                    <label>Telefone</label>
+                    <br>
+                    <input name="telefone" type="tel" rows="5" cols="23"value="{{ cliente.telefone }}"></textarea>
+                    <br>
+                    <label>E-mail</label>
+                    <br>
+                    <input type="email" name="email" size="23" value="{{ cliente.email }}">
+                    <br>
+                    <label>Perfil</label>
+                    <br>
+                    <input type="text"  name="perfil" size="23" value="{{ cliente.perfil }}">
+                    <br>
+                    <button type="submit">Salvar</button>
+                    <a href="/dashboard">
+                        <button type="button">Cancelar</button>
+                    </a>
+                </form>
+            </div>
+        </div>
+        </div>
+        {% include "base/model-footer.html" %}
+      
+      </div>
+    </div>
+    
+    {% include "components/dashboard/scripts/scripts.html" %}
+    

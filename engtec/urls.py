@@ -24,7 +24,8 @@ urlpatterns = [
     path('login/submit', views.login_submit),
     path('logout/', views.logout_user),
     path('dashboard/', views.dashboard),
-    path('projeto/submit', views.submit_projeto),
-    path('cadastro/cliente/submit', views.submit_cliente),
-    path('projetos/', views.lista_clientes),
+    path('dashboard/projeto/submit', views.submit_projeto),
+    path('dashboard/cliente/submit', views.submit_cliente),
+    path('dashboard/projeto/cadastro', views.lista_clientes),
+    path('dashboard/cliente/cadastro', views.cadastro_cliente)
 ]

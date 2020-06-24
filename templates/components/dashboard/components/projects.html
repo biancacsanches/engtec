@@ -18,6 +18,13 @@
                 </th>
             </thead>
             <tbody>
+            {% for projeto in projetos %}
+                <tr>
+                 <td>{{projeto.nome}}</td>
+                 <td>{{projeto.cliente}}</td>
+                 <td>{{projeto.data_inicio}}</td>
+                </tr>
+            {% endfor %}
             </tbody>
             </table>
         </div>
