@@ -18,6 +18,13 @@ class Projeto (models.Model):
     data_inicio = models.DateTimeField(auto_now=True, verbose_name='Data de Inicio')
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
+    def get_data_input_projeto(self):
+        # pylint: disable=no-member
+        return self.data_inicio.strftime('%Y-%m-%dT%H:%M')
+    def get_data_projeto(self):
+        # pylint: disable=no-member
+        return self.data_inicio.strftime('%d/%m/%Y %H:%M hrs')
+
 
 class Imagem (models.Model):
     imagem = models.BinaryField()

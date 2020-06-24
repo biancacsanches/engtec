@@ -1,6 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/scroll.css' %}">
-<nav class="navbar navbar-expand-lg navbar-light scrollTop" style="background-color: #1e3d58;">
+<nav class="navbar navbar-expand-lg navbar-light scrollTop" style="background-color: #1e3d58; height: 12%;">
     <a class="navbar-brand text-white" style="display: inline-flex;justify-content: center;align-items: center;">
       <img src="{% static 'assets/images/engtec.png' %}" width="70" height="70" class="d-inline-block align-top" alt="" loading="lazy">
       EngTech
@@ -43,7 +43,7 @@
                       <form class="form-inline offset-1" action="/login/submit" method="POST" > {% csrf_token %}
                         <input class="form-control dropdown-item" type="text" placeholder="Usuário" aria-label="Usuário" name="username">
                         <input class="form-control dropdown-item" placeholder="Senha" aria-label="Senha" type="password" name="password">
-                        <button class="btn btn-outline-primary " type="submit" >Sign in</button>
+                        <button class="btn btn-outline-primary " type="submit" >Sign in</button> {% csrf_token %}
                       </form>
                     </div>
                   </li>

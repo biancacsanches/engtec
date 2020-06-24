@@ -46,14 +46,17 @@ def submit_projeto(request):
         id_projeto = request.POST.get('id_projeto')
         if (nome is not None and descricao is not None and status_andamento is not None and orcamento is not None and data_inicio is not None and cliente is not None):
             if id_projeto:
-                Projeto.objects.filter(id=id_projeto).update(nome=nome, descricao=descricao, status_andamento=status_andamento, data_inicio=data_inicio, cliente = cliente)
-                status = 1
+                Projeto.objects.filter(id=id_projeto).update(nome=nome, descricao=descricao, status_andamento=status_andamento, orcamento=orcamento, data_inicio=data_inicio, cliente = cliente)
+                status = {'success':1}
+
             else:
-                Projeto.objects.create(nome=nome, descricao=descricao, status_andamento=status_andamento, data_inicio=data_inicio, cliente = cliente)
-                status = 2
+                Projeto.objects.create(nome=nome, descricao=descricao, status_andamento=status_andamento, orcamento=orcamento, data_inicio=data_inicio, cliente = cliente)
+                status = {'success':2}
+
         else :
-            status = 3      
-    return render(request, 'projeto.html', status)
+            messages.error(request, "Usuário ou senha inválido")
+     
+    return render(request, 'projeto-cadastro.html', status)
 
 @login_required(login_url='/')
 def submit_cliente(request):
@@ -80,4 +83,4 @@ def lista_clientes(request):
     # pylint: disable=no-member
     cliente = Cliente.objects.all()
     dados = {'clientes':cliente}
-    return render(request, 'projeto.html', dados)
+    return render(request, 'projeto-cadastro.html', dados)
