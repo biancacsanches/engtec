@@ -1,0 +1,7 @@
+<form class="form-inline my-2 my-lg-0" action="/cliente/submit" method="POST" > {% csrf_token %}
+    <input class="form-control mr-sm-2" type="text" placeholder="nome" aria-label="nome" name="nome">
+    <input class="form-control mr-sm-2" placeholder="telefone" aria-label="telefone" type="telefone" name="telefone">
+    <input class="form-control mr-sm-2" placeholder="email" aria-label="email" type="email" name="email">
+    <input class="form-control mr-sm-2" placeholder="perfil" aria-label="perfil" type="perfil" name="perfil">
+    <button class="btn btn-outline-primary my-2 my-sm-0 " type="submit" >Sign in</button>
+</form>

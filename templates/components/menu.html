@@ -1,8 +1,8 @@
 {% load static %}
 
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #1e3d58;">
-    <a class="navbar-brand text-white" >
-      <img src="{% static 'assets/images/engtec.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    <a class="navbar-brand text-white" style="display: inline-flex;justify-content: center;align-items: center;">
+      <img src="{% static 'assets/images/engtec.png' %}" width="70" height="70" class="d-inline-block align-top" alt="" loading="lazy">
       EngTech
     </a>
     {% comment %} Responsive menu {% endcomment %}
@@ -15,39 +15,45 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link text-white" href="#about">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="#about">Sobre <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="#galeria">Galeria</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#contato">Contato</a>
+                    <a class="nav-link text-white" href="#secvices"> Serviços</a>
                   </li>
-                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#galeria"> Galeria</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#contact"> Contato</a>
+                  </li>
+                  
+                {% if not user.is_authenticated %}
                 </ul>
                   <span style="margin-right: 2%;">
                     <a class="navbar-text disabled text-white " href="#" aria-disabled="true" style="text-transform: upercase" >{{user.username}}</a>
                     <li class="navbar-text dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
-                      Projetos
+                      Área Restrita
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Novo Projeto</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Projetos em andamento</a>
+                      <form class="form-inline my-2 my-lg-0" action="/login/submit" method="POST" > {% csrf_token %}
+                        <input class="form-control dropdown-item" type="text" placeholder="Usuário" aria-label="Usuário" name="username">
+                        <input class="form-control dropdown-item" placeholder="Senha" aria-label="Senha" type="password" name="password">
+                        <button class="btn btn-outline-primary my-2 my-sm-0 " type="submit" >Sign in</button>
+                      </form>
                     </div>
                   </li>
-                <a href="/logout"><button class="btn btn-outline-primary my-2 my-sm-0 text-white" >Logout</button></a>
+                {% comment %} <a href="/logout"><button class="btn btn-outline-primary my-2 my-sm-0 text-white" >Logout</button></a> {% endcomment %}
                 </span>
           
               {% else %}
             </ul>   
-              <form class="form-inline my-2 my-lg-0" action="/login/submit" method="POST" > {% csrf_token %}
-                <input class="form-control mr-sm-2" type="text" placeholder="Usuário" aria-label="Usuário" name="username">
-                <input class="form-control mr-sm-2" placeholder="Senha" aria-label="Senha" type="password" name="password">
-                <button class="btn btn-outline-primary my-2 my-sm-0 " type="submit" >Sign in</button>
-              </form>
+              
               {% endif %}
             </div>
           </nav>
+          <script src="{% static 'js/scroll.js' %}"></script>

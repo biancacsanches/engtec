@@ -74,11 +74,13 @@ def submit_cliente(request):
                 status = 2
         else :
             status = 3      
-    return render(request, 'cliente.html', status)
+    return render(request, 'projeto.html', status)
 
+def cadastrar_cliente(request):
+    return render(request, 'cadastro.html')
 
 def lista_clientes(request):
     # pylint: disable=no-member
-    cliente = Cliente.objects
+    cliente = Cliente.objects.all()
     dados = {'clientes':cliente}
     return render(request, 'projeto.html', dados)

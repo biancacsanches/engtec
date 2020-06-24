@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from core import views
 from django.views.generic import RedirectView
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +25,7 @@ urlpatterns = [
     path('logout/', views.logout_user),
     path('dashboard/', views.dashboard),
     path('projeto/submit', views.submit_projeto),
-    path('cliente/submit', views.submit_cliente),
-    path('projetos/', views.lista_clientes)
+    path('cadastro/cliente/submit', views.submit_cliente),
+    path('projetos/', views.lista_clientes),
+    path('cadastro/', views.cadastrar_cliente)
 ]

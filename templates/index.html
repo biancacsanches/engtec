@@ -1,9 +1,10 @@
+{% load static %}
 <DOCTYPE! html>
 
 <html>
 
   <head>
-    {% include "base/model-header.html" %}
+      {% include "base/model-header.html" %}
   </head>
 
   <header>
@@ -11,13 +12,17 @@
     <div id="" >
       {% include "components/jumbotrom.html" %}
     </div>
+     
   </header>
   
+
 
   <div class="container content">
     {% block content %}
 
       {% include "components/about.html" %}
+      
+      {% include "components/services.html" %}
 
       {% include "components/galery.html" %}
 
@@ -27,5 +32,4 @@
   </div>
   
   {% include "base/model-footer.html" %}
-  {% include "js/main.js" %}
 </html>
