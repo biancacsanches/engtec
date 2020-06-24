@@ -1,0 +1,20 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        
+          {% for message in messages %}
+            <script>
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Usuario e senha estão invalidos',
+                  footer: 'Tente novamente'
+                })
+            </script>
+          {% endfor %}
+        {% block content %}
+    {% endblock %}
+{% include "base/model-footer.html" %}
+  

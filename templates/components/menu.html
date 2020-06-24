@@ -1,22 +1,19 @@
-<html>
-    <head>
-        {% include "model-header.html" %}
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #1e3d58;">
-            <a class="navbar-brand text-white" >
-              <img src="https://photos.app.goo.gl/QFgUqhPzDoL3uA9V7" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-              Eng Tec
-              </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #1e3d58;">
+    <a class="navbar-brand text-white" >
+      <img src="https://photos.google.com/share/AF1QipP0GV6UGtsZS1meBm2FbCuWNZasX0kKAucZDvtCFiQRQbKAtAAfvBbVWcx534YdyA/photo/AF1QipO0ejLRoVlNYm2F6sJYLRxBGfY4IOf-u_zr9syv?key=ZjVzOUlvU25fa1ZkZzJuS2RsaVFwbUtMVHowTl9R" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      EngTech
+    </a>
+    {% comment %} Responsive menu {% endcomment %}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    {% comment %} End responsive Menu {% endcomment %}
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link text-white" href="#sobrenos">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-white" href="#about">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-white" href="#galeria">Galeria</a>
@@ -27,7 +24,7 @@
                 {% if user.is_authenticated %}
                 </ul>
                   <span style="margin-right: 2%;">
-                    <a class="navbar-text disabled text-white " href="#" aria-disabled="true" >Welcome {{user.username}}</a>
+                    <a class="navbar-text disabled text-white " href="#" aria-disabled="true" style="text-transform: upercase" >{{user.username}}</a>
                     <li class="navbar-text dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
@@ -52,13 +49,3 @@
               {% endif %}
             </div>
           </nav>
-          {% for message in messages %}
-          <div class="alert-dark"align="center">
-            <strong>Erro: </strong>{{ message}}
-          </div>
-          {% endfor %}
-        {% block content %}
-        {% endblock %}
-        {% include "model-footer.html" %}
-    </body>
-</html>
