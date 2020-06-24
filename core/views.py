@@ -64,9 +64,13 @@ def submit_projeto(request):
         else :
                 status = {'success':3}
      
+<<<<<<< HEAD
     return redirect('/dashboard')
 
 
+=======
+    return redirect('dashboard/projeto/cadastro')
+>>>>>>> b01395a7a909dc9c293afccd26589bfc48b1e939
 
 @login_required(login_url='/')
 def submit_cliente(request):
@@ -87,10 +91,18 @@ def submit_cliente(request):
                 status = {'success':2}
         else :
            status = {'success':3}      
+<<<<<<< HEAD
     return redirect('/dashboard')
+=======
+    return render(request, 'cliente-cadastro.html', status)
+>>>>>>> b01395a7a909dc9c293afccd26589bfc48b1e939
 
 def lista_clientes(request):
     # pylint: disable=no-member
     cliente = Cliente.objects.all()
     dados = {'clientes':cliente}
+<<<<<<< HEAD
     return render(request, 'components/dashboard/pages/projeto-cadastro.html', dados)
+=======
+    return render(request, 'projeto-cadastro.html', dados)
+>>>>>>> b01395a7a909dc9c293afccd26589bfc48b1e939
