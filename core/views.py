@@ -1,5 +1,4 @@
 from django.shortcuts import render
-# Create your views here.
 from django.shortcuts import render, redirect
 from core.models import Projeto
 from django.contrib.auth.decorators import login_required
@@ -10,7 +9,6 @@ from django.http.response import Http404, JsonResponse
 
 
 
-# Create your views here.
 def index(request):
     return render(request, 'index.html')
 
@@ -29,4 +27,6 @@ def login_submit(request):
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+
 

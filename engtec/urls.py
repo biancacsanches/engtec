@@ -20,7 +20,6 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', RedirectView.as_view(url='/login/')),
     path('', views.index),
     path('login/submit', views.login_submit),
     path('logout/', views.logout_user)
