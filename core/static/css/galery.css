@@ -1,0 +1,19 @@
+ul li {
+    list-style: none;
+}
+
+.galery {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+.galery .item {
+    width: 250px;
+}
+
+.galery .item img {
+    padding: 30px;
+}

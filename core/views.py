@@ -22,11 +22,11 @@ def login_submit(request):
         usuario = authenticate(username=username, password=password)
         if usuario is not None:
             login(request, usuario)
-            
+            return redirect('/dashboard')
         else:
             messages.error(request, "Usuário ou senha inválido")
-    return redirect('/dashboard')
-
+            return redirect('/')
+            
 def logout_user(request):
     logout(request)
     return redirect('/')

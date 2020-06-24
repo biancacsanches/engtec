@@ -1,34 +1,9 @@
-<style>
- .menuButtons {
-   width: 100%;
-    display: inline-flex;
- }
-</style>
-
-<div class="jumbotron">
-  <h1 class="display-4">Tire sua ideia do caderno</h1>
-  <p class="lead">Encontre aqui uma forma inovadora de projetar, planejar e organizar ideias para os seus projetos</p>
-  <hr class="my-4">
-   <ul>
-    <li class="text_information">Tire do caderno aquela sua ideia</li>
-    <li class="text_information">Preencha um formulario nos contando qual o seu projeto</li>
-    <li class="text_information">Negocie Valores</li>
-    <li class="text_information">Acompanhe todo o andamento da obra</li>
-  </ul>
-  <p>Comece agora!</p>
-  <div class ="menuButtons">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_project">
-      Criar um projeto
-    </button>
-    <div>
-      {% include "components/createProject.html" %}
-    </div>
-    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#login">
-      Já tenho um projeto
-    </button>
-    <div>
-      {% include "components/login.html" %}
-    </div>
-  
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/banner.css' %}">
+<div class="banner" id="home">
+  <img src="{% static 'assets/images/foto5.jpg' %}" />
+  <div class="content">
+    <h2>Tire sua ideia do caderno</h2>
+    <p>Encontre aqui uma forma inovadora de projetar, planejar e organizar ideias para os seus projetos</p>
   </div>
 </div>

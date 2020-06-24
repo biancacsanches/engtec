@@ -13,7 +13,7 @@ function scrollTo(event) {
 
 
     window.scroll({
-        top: section,
+        top: section - 180,
         behavior: "smooth"
     })
 }

@@ -1,6 +1,6 @@
 {% load static %}
-
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #1e3d58;">
+<link rel="stylesheet" href="{% static 'css/scroll.css' %}">
+<nav class="navbar navbar-expand-lg navbar-light scrollTop" style="background-color: #1e3d58;">
     <a class="navbar-brand text-white" style="display: inline-flex;justify-content: center;align-items: center;">
       <img src="{% static 'assets/images/engtec.png' %}" width="70" height="70" class="d-inline-block align-top" alt="" loading="lazy">
       EngTech
@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-white" href="#home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                   <a class="nav-link text-white" href="#about">Sobre <span class="sr-only">(current)</span></a>
@@ -40,10 +40,10 @@
                       Área Restrita
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <form class="form-inline my-2 my-lg-0" action="/login/submit" method="POST" > {% csrf_token %}
+                      <form class="form-inline offset-1" action="/login/submit" method="POST" > {% csrf_token %}
                         <input class="form-control dropdown-item" type="text" placeholder="Usuário" aria-label="Usuário" name="username">
                         <input class="form-control dropdown-item" placeholder="Senha" aria-label="Senha" type="password" name="password">
-                        <button class="btn btn-outline-primary my-2 my-sm-0 " type="submit" >Sign in</button>
+                        <button class="btn btn-outline-primary " type="submit" >Sign in</button>
                       </form>
                     </div>
                   </li>
@@ -56,4 +56,14 @@
               {% endif %}
             </div>
           </nav>
+          {% for message in messages %}
+            <script>
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Usuario ou senha invalidos!',
+                  footer: 'por favor tente novamente'
+                })
+            </script>
+          {% endfor %}
           <script src="{% static 'js/scroll.js' %}"></script>
