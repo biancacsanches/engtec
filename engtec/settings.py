@@ -123,6 +123,4 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-STATIC_FILES = {
-    os.path.join(BASE_DIR, "assets/")
-}
+

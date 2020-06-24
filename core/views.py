@@ -9,12 +9,9 @@ from django.http.response import Http404, JsonResponse
 
 
 
-<<<<<<< HEAD
 # Create your views here.
 def dashboard(request):
     return  render(request, 'dashboard.html')
-=======
->>>>>>> a84cca541381a17fd5636e952c8c6604acff5a2a
 def index(request):
     return render(request, 'index.html')
 

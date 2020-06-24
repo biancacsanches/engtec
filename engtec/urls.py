@@ -24,15 +24,8 @@ urlpatterns = [
     path('', views.index),
     path('login/submit', views.login_submit),
     path('logout/', views.logout_user),
-<<<<<<< HEAD
     path('dashboard/', views.dashboard),
-    
-]
-
-urlpatterns == staticfiles_urlpatterns()
-=======
     path('projeto/submit', views.submit_projeto),
     path('cliente/submit', views.submit_cliente),
     path('projetos/', views.lista_clientes)
 ]
->>>>>>> a84cca541381a17fd5636e952c8c6604acff5a2a
