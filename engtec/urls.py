@@ -17,11 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from core import views
 from django.views.generic import RedirectView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', RedirectView.as_view(url='/login/')),
     path('', views.index),
     path('login/submit', views.login_submit),
-    path('logout/', views.logout_user)
+    path('logout/', views.logout_user),
+    path('dashboard/', views.dashboard),
+    
 ]
+
+urlpatterns == staticfiles_urlpatterns()

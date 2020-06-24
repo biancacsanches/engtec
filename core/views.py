@@ -11,6 +11,8 @@ from django.http.response import Http404, JsonResponse
 
 
 # Create your views here.
+def dashboard(request):
+    return  render(request, 'dashboard.html')
 def index(request):
     return render(request, 'index.html')
 
@@ -24,7 +26,7 @@ def login_submit(request):
             
         else:
             messages.error(request, "Usuário ou senha inválido")
-    return redirect('/')
+    return redirect('/dashboard')
 
 def logout_user(request):
     logout(request)
